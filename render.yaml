@@ -5,11 +5,13 @@ services:
     plan: free
     region: oregon
     dockerfilePath: ./Dockerfile
+    startCommand: |
+      php artisan migrate --force && apache2-foreground
     envVars:
       - key: APP_ENV
         value: production
       - key: APP_KEY
-        value: base64:TU_CLAVE_GENERADA
+        value: base64:LpA6WlKhUUFkAiQ7hEvUWJjkgQMP6rwqEqNd6FR8j20=
       - key: DB_CONNECTION
         value: mysql
       - key: DB_HOST
