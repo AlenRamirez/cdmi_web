@@ -1,0 +1,28 @@
+{
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-BeopsB42.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-mSm7cUeB.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  },
+  "public/img/perfilback.jpg": {
+    "file": "assets/perfilback-C1FsgbbS.jpg",
+    "src": "public/img/perfilback.jpg"
+  },
+  "resources/app.jsx": {
+    "file": "assets/app-B80t015G.js",
+    "name": "app",
+    "src": "resources/app.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/app-DjW4vig6.css"
+    ],
+    "assets": [
+      "assets/perfilback-C1FsgbbS.jpg",
+      "assets/bootstrap-icons-mSm7cUeB.woff2",
+      "assets/bootstrap-icons-BeopsB42.woff"
+    ]
+  }
+}
