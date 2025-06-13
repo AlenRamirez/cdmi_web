@@ -19,13 +19,14 @@ export default defineConfig({
         },
     },
     build: {
-        manifest: true, // 👈 importante para producción
-        outDir: 'public/build', // 👈 asegura que los assets estén donde Laravel los espera
+        manifest: true,
+        outDir: 'public/build',
+        emptyOutDir: true, // 🔥 esto evita que Vite meta todo en .vite/
         rollupOptions: {
-            input: 'resources/app.jsx', // 👈 importante para producción
+            input: 'resources/app.jsx',
         },
     },
     server: {
-        https: true, // 👈 ayuda en local, pero no afecta en Render
+        https: true,
     }
 });
