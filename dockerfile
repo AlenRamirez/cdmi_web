@@ -1,7 +1,6 @@
-# Usa la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Habilita Apache mod_rewrite para Laravel
+# Habilita mod_rewrite de Apache
 RUN a2enmod rewrite
 
 # Instala dependencias del sistema
@@ -20,17 +19,20 @@ RUN apt-get update && apt-get install -y \
 # Instala Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Establece el directorio de trabajo
+# Establece directorio de trabajo
 WORKDIR /var/www/html
 
-# Copia los archivos del proyecto Laravel (esto se reemplaza al usar bind mount)
-COPY . /var/www/html
+# Copia todo el proyecto
+COPY . .
 
-# Da permisos a la carpeta de almacenamiento y caché de Laravel
+# Instala dependencias de Laravel
+RUN composer install --no-dev --optimize-autoloader
+
+# Da permisos a Laravel
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage
 
-# Configura el virtual host para permitir Laravel routes
+# Configura Apache para Laravel
 RUN echo '<Directory /var/www/html>\n\
     Options Indexes FollowSymLinks\n\
     AllowOverride All\n\
@@ -38,5 +40,5 @@ RUN echo '<Directory /var/www/html>\n\
 </Directory>' > /etc/apache2/conf-available/laravel.conf && \
     a2enconf laravel
 
-# Expone el puerto 80
+# Expone el puerto para Render
 EXPOSE 80
