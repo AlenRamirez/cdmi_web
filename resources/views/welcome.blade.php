@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device=width, initial-scale=1.0">
     <title>CDMI LARAVEL - REACT</title>
     @viteReactRefresh
-    @vite("resources/app.jsx")
+    @vite("resources/../app.jsx")
 </head>
 <body>
     <div id="root"></div>
